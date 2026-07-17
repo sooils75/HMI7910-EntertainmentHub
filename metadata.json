@@ -1,0 +1,6 @@
+{
+  "name": "VIBE Entertainment Hub",
+  "description": "A vibrant and energetic personal entertainment website hosting movies, animations, and music playlists with a smooth search function and drag-and-drop media player.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

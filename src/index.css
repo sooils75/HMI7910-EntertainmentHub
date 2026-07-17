@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --vibe-bg: #0b1326;
+  --vibe-bg-dark: #060e20;
+  --vibe-surface: #131b2e;
+  --vibe-surface-high: #171f33;
+  --vibe-surface-highest: #222a3d;
+  --vibe-border: rgba(255, 255, 255, 0.08);
+
+  --vibe-primary: #ddb7ff; /* Electric Purple */
+  --vibe-primary-dark: #b76dff;
+  --vibe-secondary: #5de6ff; /* Neon Cyan */
+  --vibe-tertiary: #ec6a06; /* Energetic Orange */
+  --vibe-text: #dae2fd;
+  --vibe-text-muted: #cfc2d6;
+
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-high-bg: rgba(19, 27, 46, 0.8);
+}
+
+html.light {
+  --vibe-bg: #f8fafc;
+  --vibe-bg-dark: #f1f5f9;
+  --vibe-surface: #ffffff;
+  --vibe-surface-high: #f1f5f9;
+  --vibe-surface-highest: #e2e8f0;
+  --vibe-border: rgba(15, 23, 42, 0.08);
+
+  --vibe-primary: #7c3aed; /* Deep purple */
+  --vibe-primary-dark: #6d28d9;
+  --vibe-secondary: #0ea5e9; /* Sky blue */
+  --vibe-tertiary: #ea580c; /* Deep orange */
+  --vibe-text: #0f172a; /* Dark slate */
+  --vibe-text-muted: #475569; /* Muted slate */
+
+  --glass-bg: rgba(15, 23, 42, 0.03);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glass-high-bg: rgba(255, 255, 255, 0.85);
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", sans-serif;
+  --font-mono: "Space Grotesk", ui-monospace, SFMono-Regular, monospace;
+
+  /* Bind Theme Colors to CSS custom properties */
+  --color-vibe-bg: var(--vibe-bg);
+  --color-vibe-bg-dark: var(--vibe-bg-dark);
+  --color-vibe-surface: var(--vibe-surface);
+  --color-vibe-surface-high: var(--vibe-surface-high);
+  --color-vibe-surface-highest: var(--vibe-surface-highest);
+  --color-vibe-border: var(--vibe-border);
+
+  --color-vibe-primary: var(--vibe-primary);
+  --color-vibe-primary-dark: var(--vibe-primary-dark);
+  --color-vibe-secondary: var(--vibe-secondary);
+  --color-vibe-tertiary: var(--vibe-tertiary);
+  --color-vibe-text: var(--vibe-text);
+  --color-vibe-text-muted: var(--vibe-text-muted);
+
+  /* Audio Equalizer animations */
+  --animate-waveform-bar: waveform-bar 1.2s ease-in-out infinite alternate;
+  --animate-pulse-bar-1: pulse-bar-1 0.8s ease-in-out infinite alternate;
+  --animate-pulse-bar-2: pulse-bar-2 1.1s ease-in-out infinite alternate;
+  --animate-pulse-bar-3: pulse-bar-3 0.9s ease-in-out infinite alternate;
+  --animate-spin-slow: spin 24s linear infinite;
+
+  @keyframes waveform-bar {
+    0% { transform: scaleY(0.2); }
+    100% { transform: scaleY(1); }
+  }
+  @keyframes pulse-bar-1 {
+    0% { height: 4px; }
+    100% { height: 12px; }
+  }
+  @keyframes pulse-bar-2 {
+    0% { height: 6px; }
+    100% { height: 16px; }
+  }
+  @keyframes pulse-bar-3 {
+    0% { height: 3px; }
+    100% { height: 10px; }
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-high {
+    background: var(--glass-high-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.25);
+  }
+
+  .glow-purple-hover:hover {
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.4);
+    transform: scale(1.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glow-cyan-hover:hover {
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.4);
+    transform: scale(1.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+body {
+  background-color: var(--color-vibe-bg);
+  color: var(--color-vibe-text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, .font-sora {
+  font-family: var(--font-display);
+}
+
+.font-mono-labels {
+  font-family: var(--font-mono);
+}
